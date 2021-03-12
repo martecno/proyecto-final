@@ -1,22 +1,23 @@
 package com.profinal.entities;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-
-public class User extends Person implements Serializable {
+//@Entity
+public class SupportCase implements Serializable {
+	private Date visit;
 
 	private void getClient() {
 		// TODO Auto-generated method stub
 
 	}
 
-	private void getSupportCase() {
-		// TODO Auto-generated method stub
-
+	public SupportCase() {
+		// TODO Auto-generated constructor stub
 	}
 }
