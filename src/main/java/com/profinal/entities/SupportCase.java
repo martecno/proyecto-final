@@ -1,16 +1,17 @@
 package com.profinal.entities;
 
 import java.io.Serializable;
-import java.util.Date;
 
-import lombok.Getter;
-import lombok.Setter;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-@Getter
-@Setter
-//@Entity
+import lombok.Data;
+
+@Data
+@Entity
 public class SupportCase implements Serializable {
-	private Date visit;
+	@Id
+	private String id;
 
 	private void getClient() {
 		// TODO Auto-generated method stub
@@ -19,5 +20,10 @@ public class SupportCase implements Serializable {
 
 	public SupportCase() {
 		// TODO Auto-generated constructor stub
+	}
+
+	private void getCalendar() {
+		// TODO Auto-generated method stub
+
 	}
 }

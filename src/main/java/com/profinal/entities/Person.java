@@ -1,6 +1,9 @@
 package com.profinal.entities;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
+import javax.persistence.Id;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,7 +20,8 @@ import lombok.ToString;
 @ToString
 @Entity
 
-public class Person {
+public abstract class Person implements Serializable {
+	@Id
 	private String name;
 	private String user;
 	private String password;

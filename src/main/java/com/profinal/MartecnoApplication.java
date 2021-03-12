@@ -1,4 +1,4 @@
-package com.profinal.martecno;
+package com.profinal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
