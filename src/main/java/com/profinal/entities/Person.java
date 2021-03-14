@@ -9,13 +9,11 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Entity
 
 public abstract class Person implements Serializable {
@@ -25,5 +23,9 @@ public abstract class Person implements Serializable {
 	private String password;
 	private Integer cell;
 	private String email;
+
+	private void getUser() {
+		// TODO Auto-generated method stub
+	}
 
 }
