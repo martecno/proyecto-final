@@ -3,22 +3,23 @@ package com.profinal.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.profinal.entities.User;
 import com.profinal.repositories.UserRepository;
 
 @Controller
 @RequestMapping("/person")
-public interface PersonController {
+public class PersonController {
 
 	@Autowired
-	private UserRepository userrepository;
+	private UserRepository userRepository;
 
-	@RequestMapping(value = "/new", method = RequestMethod.GET)
+	@PostMapping(value = "/new")
 	public String createUser(Model model) {
-		model.addAttribute("person", new User());
-		return "newPerson";
+		model.addAttribute("user", new User());
+		return "newUser";
 	}
 
 }
