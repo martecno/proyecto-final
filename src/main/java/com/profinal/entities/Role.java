@@ -1,12 +1,8 @@
 package com.profinal.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
-@Getter
-@Setter
-
-public class Role {
-	private String name;
+public abstract class Role implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 }

@@ -1,5 +1,8 @@
 package com.profinal.entities;
 
-public abstract class Auth extends Role {
+import java.io.Serializable;
+
+public class Auth implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 }

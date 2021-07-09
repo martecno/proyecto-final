@@ -1,10 +1,21 @@
 package com.profinal.entities;
 
-import lombok.Getter;
-import lombok.Setter;
+import java.io.Serializable;
 
-@Getter
-@Setter
-public class Supplier {
+import javax.persistence.Id;
+
+public class Supplier implements Serializable {
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	private Long id;
+
+	private String name;
+	private Long cuit;
+	private String material;
+
+	public Supplier() {
+
+	}
 
 }

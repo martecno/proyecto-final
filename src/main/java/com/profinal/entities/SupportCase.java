@@ -3,27 +3,32 @@ package com.profinal.entities;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
-import lombok.Data;
+import org.hibernate.annotations.Type;
 
-@Data
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity
+
 public class SupportCase implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	private String id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	@ManyToOne
+	private Client client;
+	@OneToOne
+	private Calendar calendar;
+	@Type(type = "text")
+	private String description;
 
-	private void getClient() {
-		// TODO Auto-generated method stub
-
-	}
-
-	public SupportCase() {
-		// TODO Auto-generated constructor stub
-	}
-
-	private void getCalendar() {
-		// TODO Auto-generated method stub
-
-	}
 }
