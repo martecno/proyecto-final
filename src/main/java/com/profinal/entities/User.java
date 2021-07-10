@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity(name = "user")
 @DiscriminatorValue("USER")
 public class User extends Person implements Serializable {
@@ -26,6 +31,7 @@ public class User extends Person implements Serializable {
 
 	public User() {
 	}
+
 }
 
 //	public User(String name, String lastname, String user, String password, Integer cell, String email) {
