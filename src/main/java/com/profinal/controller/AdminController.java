@@ -9,36 +9,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.profinal.entities.User;
-import com.profinal.services.UserService;
+import com.profinal.entities.Admin;
+import com.profinal.services.AdminService;
 
 @Controller
-@RequestMapping("/user")
-public class UserController {
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
-	private final UserService userService;
+@RequestMapping("/admin")
+public class AdminController {
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
+	private final AdminService adminService;
 
-	public UserController(UserService userService) {
-		this.userService = userService;
+	public AdminController(AdminService adminService) {
+		this.adminService = adminService;
 	}
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newUser(Model model) {
-		model.addAttribute("user", new User());
+		model.addAttribute("admin", new Admin());
 		return "newUser";
 	}
 
 	@PostMapping(value = "/create")
-	public String createUser(@RequestParam(value = "name") String name,
+	public String createAdmin(@RequestParam(value = "name") String name,
 			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell, Model model) {
 
-		User user = new User();
-		user.setName(name);
-		user.setLastname(lastname);
-		user.setCell(cell);
-		user = userService.save(user);
-		model.addAttribute("user", user);
-		System.out.println(String.format("Se creó el usuario con id: %s", user.getId()));
+		Admin admin = new Admin();
+		admin.setName(name);
+		admin.setLastname(lastname);
+		admin.setCell(cell);
+		admin = adminService.save(admin);
+		model.addAttribute("admin", admin);
+		System.out.println(String.format("Se creó el usauario con id: %s", admin.getId()));
 		return "redirect:/";
 	}
 

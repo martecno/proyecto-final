@@ -28,6 +28,7 @@ public class Client implements Serializable {
 	private String name;
 	private String direction;
 	private Integer cuit;
+	
 
 	@OneToMany(mappedBy = "client")
 	private List<SupportCase> supportCases;

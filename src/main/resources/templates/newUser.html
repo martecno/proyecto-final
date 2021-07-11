@@ -12,5 +12,19 @@
 			<input type="text" id="cell" placeholder="Cell..." name="cell" th:field="*{cell}"/>		
 			<button type="submit">Enviar</button>
 		</form>
+		<h1>Cargar un nuevo admin</h1>
+		<form th:action="@{/admin/create}" method="post" th:object=${user}>
+			<input type="text" id="name" placeholder="Name..." name="name" th:field="*{name}"/>
+			<input type="text" id="lastname" placeholder="LastName..." name="lastname" th:field="*{lastname}"/>	
+			<input type="text" id="cell" placeholder="Cell..." name="cell" th:field="*{cell}"/>		
+			<button type="submit">Enviar</button>
+		</form>
+		<h1>Cargar un nuevo contador</h1>
+		<form th:action="@{/accountant/create}" method="post" th:object=${user}>
+			<input type="text" id="name" placeholder="Name..." name="name" th:field="*{name}"/>
+			<input type="text" id="lastname" placeholder="LastName..." name="lastname" th:field="*{lastname}"/>	
+			<input type="text" id="cell" placeholder="Cell..." name="cell" th:field="*{cell}"/>		
+			<button type="submit">Enviar</button>
+		</form>
 	</body>
 </html>

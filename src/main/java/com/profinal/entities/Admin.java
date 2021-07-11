@@ -8,6 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 @Entity(name = "admin")
 @DiscriminatorValue("ADMIN")
 
@@ -17,7 +22,7 @@ public class Admin extends User implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public Admin(String name, String lastname, String user, String password, Integer cell, String email) {
+	public Admin(String name, String lastname, String user, String password, String cell, String email) {
 		this.name = name;
 		this.lastname = lastname;
 		this.password = password;
@@ -26,10 +31,6 @@ public class Admin extends User implements Serializable {
 	}
 
 	public Admin() {
-		// TODO Auto-generated constructor stub
 	}
-}
 
-//	public Admin(String name, String lastname, String user, String password, Integer cell, String email) {
-//		super(name, lastname, user, password, cell, email);
-//	}
+}

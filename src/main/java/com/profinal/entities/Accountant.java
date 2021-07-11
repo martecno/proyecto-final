@@ -16,7 +16,7 @@ public class Accountant extends Person implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public Accountant(String name, String lastname, String user, String password, Integer cell, String email) {
+	public Accountant(String name, String lastname, String user, String password, String cell, String email) {
 		this.name = name;
 		this.lastname = lastname;
 		this.password = password;
@@ -25,10 +25,6 @@ public class Accountant extends Person implements Serializable {
 	}
 
 	public Accountant() {
-		// TODO Auto-generated constructor stub
 	}
-}
 
-//	public Accountant(String name, String lastname, String user, String password, Integer cell, String email) {
-//		super(name, lastname, user, password, cell, email);
-//	}
+}

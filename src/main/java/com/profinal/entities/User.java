@@ -15,13 +15,14 @@ import lombok.Setter;
 @Setter
 @Entity(name = "user")
 @DiscriminatorValue("USER")
+
 public class User extends Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	public User(String name, String lastname, String user, String password, Integer cell, String email) {
+	public User(String name, String lastname, String user, String password, String cell, String email) {
 		this.name = name;
 		this.lastname = lastname;
 		this.password = password;
@@ -33,7 +34,3 @@ public class User extends Person implements Serializable {
 	}
 
 }
-
-//	public User(String name, String lastname, String user, String password, Integer cell, String email) {
-//		super(name, lastname, user, password, cell, email);
-//	}
