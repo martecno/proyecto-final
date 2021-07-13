@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @Entity
 
-public class Person implements Serializable {
+public abstract class Person implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -29,14 +29,7 @@ public class Person implements Serializable {
 	protected String email;
 	protected String password;
 
-	public Person(String name, String lastname, String password, String cell, String email) {
-		this.name = name;
-		this.lastname = lastname;
-		this.password = password;
-		this.cell = cell;
-		this.email = email;
-	}
-
 	@ManyToOne
 	private Calendar calendar;
+
 }
