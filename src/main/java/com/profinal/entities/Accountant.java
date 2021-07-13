@@ -1,7 +1,5 @@
 package com.profinal.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +8,7 @@ import javax.persistence.Id;
 
 @Entity(name = "Accountant")
 @DiscriminatorValue("ACCOUNTANT")
-public class Accountant extends Person implements Serializable {
+public class Accountant extends Person {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

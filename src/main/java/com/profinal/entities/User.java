@@ -1,7 +1,5 @@
 package com.profinal.entities;
 
-import java.io.Serializable;
-
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,7 +14,7 @@ import lombok.Setter;
 @Entity(name = "user")
 @DiscriminatorValue("USER")
 
-public class User extends Person implements Serializable {
+public class User extends Person {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
