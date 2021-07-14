@@ -4,7 +4,7 @@
 		<meta charset="UTF-8">
 		<meta content="width=device-width, initial-scale=1" name="viewport">
 		<meta name="author" content="MarTecno"/>
-		<title>Carga de usuarios</title>
+		<title>MarTecno</title>
 		
 		<!-- Style -->
 		<link rel="stylesheet" th:href="@{https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css}" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
@@ -18,22 +18,25 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" th:href="@{/images/logo.ico}" type="image/x-icon">
 		<link rel="icon" th:href="@{/images/logo.ico}" type="image/x-icon">
-	
+		
 	</head>
-	<body class="text-center">
-	<!-- Navbar -->
+	<body>
+		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
-		<h1>Nuevo usuario</h1>
-		<form th:action="@{/user/create}" method="post" th:object=${user}>
-			<input type="text" id="name" placeholder="Nombre" name="name" th:field="*{name}"/>
-			<input type="text" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}"/>	
-			<input type="text" id="cell" placeholder="Celular" name="cell" th:field="*{cell}"/>
+		
+		<h1>Nuevo Admin</h1>
+		<form th:action="@{/admin/create}" method="post" th:object=${admin}>
+			<input type="text" id="name" placeholder="Name..." name="name" th:field="*{name}"/>
+			<input type="text" id="lastname" placeholder="LastName..." name="lastname" th:field="*{lastname}"/>	
+			<input type="text" id="cell" placeholder="Cell..." name="cell" th:field="*{cell}"/>
 			<input type="text" id="email" placeholder="Email" name="email" th:field="*{email}"/>		
-			<input type="text" id="password" placeholder="Contraeña" name="password" th:field="*{password}"/>				
+			<input type="text" id="password" placeholder="Contraeña" name="password" th:field="*{password}"/>		
 			<button type="submit" class="btn btn-dark">Enviar</button>
 		</form>
-	
+		
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
+
+	
 	</body>
 </html>
