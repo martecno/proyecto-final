@@ -34,15 +34,15 @@ public class AccountantController {
 			@RequestParam(value = "email") String email, @RequestParam(value = "password") String password,
 			Model model) {
 
-		Accountant admin = new Accountant();
-		admin.setName(name);
-		admin.setLastname(lastname);
-		admin.setCell(cell);
-		admin.setEmail(email);
-		admin.setPassword(password);
-		admin = accountantService.save(admin);
-		model.addAttribute("admin", admin);
-		System.out.println(String.format("Se creó el usuario con id: %s", admin.getId()));
+		Accountant accountant = new Accountant();
+		accountant.setName(name);
+		accountant.setLastname(lastname);
+		accountant.setCell(cell);
+		accountant.setEmail(email);
+		accountant.setPassword(password);
+		accountant = accountantService.save(accountant);
+		model.addAttribute("accountant", accountant);
+		System.out.println(String.format("Se creó el usuario con id: %s", accountant.getId()));
 		return "redirect:/";
 	}
 

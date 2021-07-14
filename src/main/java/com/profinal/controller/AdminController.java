@@ -25,7 +25,7 @@ public class AdminController {
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
 	public String newUser(Model model) {
 		model.addAttribute("admin", new Admin());
-		return "newUser";
+		return "newAdmin";
 	}
 
 	@PostMapping(value = "/create")
