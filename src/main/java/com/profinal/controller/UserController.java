@@ -30,12 +30,16 @@ public class UserController {
 
 	@PostMapping(value = "/create")
 	public String createUser(@RequestParam(value = "name") String name,
-			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell, Model model) {
+			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell,
+			@RequestParam(value = "email") String email, @RequestParam(value = "password") String password,
+			Model model) {
 
 		User user = new User();
 		user.setName(name);
 		user.setLastname(lastname);
 		user.setCell(cell);
+		user.setEmail(email);
+		user.setPassword(password);
 		user = userService.save(user);
 		model.addAttribute("user", user);
 		System.out.println(String.format("Se creó el usuario con id: %s", user.getId()));

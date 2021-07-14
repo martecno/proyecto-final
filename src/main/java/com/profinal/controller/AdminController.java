@@ -30,15 +30,19 @@ public class AdminController {
 
 	@PostMapping(value = "/create")
 	public String createAdmin(@RequestParam(value = "name") String name,
-			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell, Model model) {
+			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell,
+			@RequestParam(value = "email") String email, @RequestParam(value = "password") String password,
+			Model model) {
 
 		Admin admin = new Admin();
 		admin.setName(name);
 		admin.setLastname(lastname);
 		admin.setCell(cell);
+		admin.setEmail(email);
+		admin.setPassword(password);
 		admin = adminService.save(admin);
 		model.addAttribute("admin", admin);
-		System.out.println(String.format("Se creó el usauario con id: %s", admin.getId()));
+		System.out.println(String.format("Se creó el usuario con id: %s", admin.getId()));
 		return "redirect:/";
 	}
 
