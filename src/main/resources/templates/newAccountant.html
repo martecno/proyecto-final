@@ -20,19 +20,32 @@
 		<link rel="icon" th:href="@{/images/logo.ico}" type="image/x-icon">
 		
 	</head>
-	<body>
+	<body class="text-center">
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
 		
-			<h1>Nuevo Contador</h1>
-		<form th:action="@{/accountant/create}" method="post" th:object=${accountant}>
-			<input type="text" id="name" placeholder="Name..." name="name" th:field="*{name}"/>
-			<input type="text" id="lastname" placeholder="LastName..." name="lastname" th:field="*{lastname}"/>	
-			<input type="text" id="cell" placeholder="Cell..." name="cell" th:field="*{cell}"/>
-			<input type="text" id="email" placeholder="Email" name="email" th:field="*{email}"/>		
-			<input type="text" id="password" placeholder="Contraeña" name="password" th:field="*{password}"/>		
-			<button type="submit" class="btn btn-dark">Enviar</button>
+			<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo contador</h1>
+		<form th:action="@{/accountant/create}" method="post"  th:object=${accountant}>
+		  <div class="form-row" style="padding-left:15%;">
+		    <div class="col-md-2 mb-3">
+		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}"/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}"/>	
+		    </div>
+		    <div class="col-md-2 mb-3">
+		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}"/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+		      <input type="text" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}"/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}"/>
+		    </div>
+		  </div>
+		  <button class="btn btn-dark" type="submit">Agregar</button>
 		</form>
+
 		
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
