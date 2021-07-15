@@ -18,67 +18,87 @@
 		<!-- Favicon -->
 		<link rel="shortcut icon" th:href="@{/images/logo.ico}" type="image/x-icon">
 		<link rel="icon" th:href="@{/images/logo.ico}" type="image/x-icon">
-		<!-- Calendar -->
-	</head>
-<body>
-		<!-- Navbar -->
-		<header th:insert="navbar.html :: navbar"> </header>
 		
-		 <div class="month">      
-  <ul>
-    <li class="prev">&#10094;</li>
-    <li class="next">&#10095;</li>
-    <li>
-      Agosto<br>
-      <span style="font-size:18px">2021</span>
-    </li>
-  </ul>
-</div>
+		<!-- Calendar -->
 
-<ul class="weekdays">
-  <li>Lun</li>
-  <li>Mar</li>
-  <li>Mie</li>
-  <li>Jue</li>
-  <li>Vie</li>
-  <li>Sab</li>
-  <li>Dom</li>
-</ul>
-
-<ul class="days">  
-  <li>1</li>
-  <li>2</li>
-  <li>3</li>
-  <li>4</li>
-  <li>5</li>
-  <li>6</li>
-  <li>7</li>
-  <li>8</li>
-  <li>9</li>
-  <li><span class="active">10</span></li>
-  <li>11</li>
-  <li>12</li>
-  <li>13</li>
-  <li>14</li>
-  <li>15</li>
-  <li>16</li>
-  <li>17</li>
-  <li>18</li>
-  <li>19</li>
-  <li>20</li>
-  <li>21</li>
-  <li>22</li>
-  <li>23</li>
-  <li>24</li>
-  <li>25</li>
-  <li>26</li>
-  <li>27</li>
-  <li>28</li>
-  <li>29</li>
-  <li>30</li>
-  <li>31</li>
-</ul>
-		<!-- Footer -->	
-		<header th:insert="footer.html :: footer"> </header>
-</body>
+	</head>
+	<body>
+			<!-- Navbar -->
+			<header th:insert="navbar.html :: navbar"> </header>
+			
+			<div class="p-5">
+			  <h2 class="mb-4">Full Calendar</h2>
+			  <div class="card">
+			    <div class="card-body p-0">
+			      <div id="calendar"></div>
+			    </div>
+			  </div>
+			</div>
+			
+			<!-- calendar modal -->
+			<div id="modal-view-event" class="modal modal-top fade calendar-modal">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+							<div class="modal-body">
+								<h4 class="modal-title"><span class="event-icon"></span><span class="event-title"></span></h4>
+								<div class="event-body"></div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			<div id="modal-view-event-add" class="modal modal-top fade calendar-modal">
+			  <div class="modal-dialog modal-dialog-centered">
+			    <div class="modal-content">
+			      <form id="add-event">
+			        <div class="modal-body">
+			        <h4>Add Event Detail</h4>        
+			          <div class="form-group">
+			            <label>Event name</label>
+			            <input type="text" class="form-control" name="ename">
+			          </div>
+			          <div class="form-group">
+			            <label>Event Date</label>
+			            <input type='text' class="datetimepicker form-control" name="edate">
+			          </div>        
+			          <div class="form-group">
+			            <label>Event Description</label>
+			            <textarea class="form-control" name="edesc"></textarea>
+			          </div>
+			          <div class="form-group">
+			            <label>Event Color</label>
+			            <select class="form-control" name="ecolor">
+			              <option value="fc-bg-default">fc-bg-default</option>
+			              <option value="fc-bg-blue">fc-bg-blue</option>
+			              <option value="fc-bg-lightgreen">fc-bg-lightgreen</option>
+			              <option value="fc-bg-pinkred">fc-bg-pinkred</option>
+			              <option value="fc-bg-deepskyblue">fc-bg-deepskyblue</option>
+			            </select>
+			          </div>
+			          <div class="form-group">
+			            <label>Event Icon</label>
+			            <select class="form-control" name="eicon">
+			              <option value="circle">circle</option>
+			              <option value="cog">cog</option>
+			              <option value="group">group</option>
+			              <option value="suitcase">suitcase</option>
+			              <option value="calendar">calendar</option>
+			            </select>
+			          </div>        
+			      </div>
+			        <div class="modal-footer">
+			        <button type="submit" class="btn btn-primary" >Save</button>
+			        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>        
+			      </div>
+			      </form>
+			    </div>
+			  </div>
+			</div>
+			 
+			<!-- Footer -->	
+			<header th:insert="footer.html :: footer"> </header>
+	</body>
 </html>
