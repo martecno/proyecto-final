@@ -25,21 +25,18 @@
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
 		
-		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo Cliente</h1>
-		<form th:action="@{/client/create}" method="post"  th:object=${client}>
-			  <div class="form-row" style="padding-left:35%;">
-			    <div class="col-md-2 mb-3">
-			     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}"/>
-			    </div>
-			    <div class="col-md-2 mb-3">
-					<input type="text" class="form-control" id="direction" placeholder="Dirección" name="direction" th:field="*{direction}"/>	
-			    </div>
-			    <div class="col-md-2 mb-3">
-			    	<input type="text" class="form-control" id="cuit" placeholder="CUIT" name="cuit" th:field="*{cuit}"/>
-			    </div>
-			  </div>
-			  <button class="btn btn-dark" type="submit">Agregar</button>
-		</form>
+		<table style="width:100%" th:each="client: ${clients}">
+		  <tr>
+		    <th>Nombre</th>
+		    <th>Dirección</th> 
+		    <th>CUIT</th>
+		  </tr>
+		  <tr>
+		    <td th:text="${client.name}"></td>
+		    <td th:text="${client.direction}"></td>
+		    <td th:text="${client.cuit}"></td>
+		  </tr>
+		</table>
 		
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>

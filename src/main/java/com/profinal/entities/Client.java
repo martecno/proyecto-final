@@ -10,8 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+@Getter
+@Setter
 @NoArgsConstructor
 @Entity
 
@@ -23,7 +27,7 @@ public class Client implements Serializable {
 	private Long id;
 	private String name;
 	private String direction;
-	private Integer cuit;
+	private Long cuit;
 
 	@OneToMany(mappedBy = "client")
 	private List<SupportCase> supportCases;
