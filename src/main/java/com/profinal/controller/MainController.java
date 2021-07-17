@@ -27,9 +27,9 @@ public class MainController {
 		return "calendar";
 	}
 
-	@GetMapping(value = "/supportCase")
+	@GetMapping(value = "/supportcase")
 	public String supportcase() {
-		return "supportCase";
+		return "supportcase";
 	}
 
 	@GetMapping(value = "/client")
