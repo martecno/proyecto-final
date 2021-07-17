@@ -1,5 +1,7 @@
 package com.profinal.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,4 +20,9 @@ public class ClientService {
 	public Client save(Client client) {
 		return clientRepository.saveAndFlush(client);
 	}
+
+	public List<Client> getClients() {
+		return clientRepository.findAll();
+	}
+
 }
