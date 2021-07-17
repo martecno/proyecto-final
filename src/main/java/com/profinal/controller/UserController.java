@@ -41,7 +41,6 @@ public class UserController {
 		user.setEmail(email);
 		user.setPassword(password);
 		user = userService.save(user);
-		model.addAttribute("user", user);
 		System.out.println(String.format("Se creó el usuario con id: %s", user.getId()));
 		return "redirect:/";
 	}
