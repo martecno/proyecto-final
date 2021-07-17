@@ -24,20 +24,22 @@
 	<body class="text-center">
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
-		
-		<table style="width:80%" th:each="client: ${clients}">
-		  <tr>
-		    <th>Nombre</th>
-		    <th>Dirección</th> 
-		    <th>CUIT</th>
-		  </tr>
-		  <tr>
-		    <td th:text="${client.name}"></td>
-		    <td th:text="${client.direction}"></td>
-		    <td th:text="${client.cuit}"></td>
-		  </tr>
-		</table>
-		
+		<div class="container">
+			<div >
+				<table style="width:80%">
+				  <tr>
+				    <th>Nombre</th>
+				    <th>Dirección</th> 
+				    <th>CUIT</th>
+				  </tr>
+				  <tr th:each="client: ${clients}">
+				    <td th:text="${client.name}"></td>
+				    <td th:text="${client.direction}"></td>
+				    <td th:text="${client.cuit}"></td>
+				  </tr>
+				</table>
+			</div>
+		</div>
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
 	</body>
