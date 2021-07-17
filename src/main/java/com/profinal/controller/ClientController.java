@@ -1,5 +1,6 @@
 package com.profinal.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,6 +16,7 @@ import com.profinal.services.ClientService;
 public class ClientController {
 	private final ClientService clientService;
 
+	@Autowired
 	public ClientController(ClientService clientService) {
 		this.clientService = clientService;
 	}
@@ -34,9 +36,8 @@ public class ClientController {
 		client.setDirection(direction);
 		client.setCuit(cuit);
 		client = clientService.save(client);
-		model.addAttribute("client", client);
 
-		return "redirect:/";
+		return "redirect:/client";
 
 	}
 }
