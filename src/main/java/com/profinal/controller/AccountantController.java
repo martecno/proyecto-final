@@ -2,6 +2,7 @@ package com.profinal.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +19,7 @@ public class AccountantController {
 	private static final Logger logger = LoggerFactory.getLogger(AccountantController.class);
 	private final AccountantService accountantService;
 
+	@Autowired
 	public AccountantController(AccountantService accountantService) {
 		this.accountantService = accountantService;
 	}
@@ -41,7 +43,6 @@ public class AccountantController {
 		accountant.setEmail(email);
 		accountant.setPassword(password);
 		accountant = accountantService.save(accountant);
-		model.addAttribute("accountant", accountant);
 		System.out.println(String.format("Se creó el usuario con id: %s", accountant.getId()));
 		return "redirect:/";
 	}
