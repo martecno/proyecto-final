@@ -37,7 +37,7 @@ public class ClientController {
 		client.setCuit(cuit);
 		client = clientService.save(client);
 
-		return "redirect:/client";
-
+		return "redirect:/successclient";
 	}
+
 }

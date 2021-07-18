@@ -28,19 +28,19 @@
 		<form th:action="@{/admin/create}" method="post"  th:object=${admin}>
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
-		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}"/>
+		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
 		    </div>
 		    <div class="col-md-2 mb-3">
-				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}"/>	
+				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}" required/>	
 		    </div>
 		    <div class="col-md-2 mb-3">
-		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}"/>
+		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}" required/>
 		    </div>
 		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}"/>
+		      <input type="text" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}" required/>
 		    </div>
 		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}"/>
+		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}"  required/>
 		    </div>
 		  </div>
 		  <button class="btn btn-dark" type="submit">Agregar</button>

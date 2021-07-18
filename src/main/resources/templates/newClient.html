@@ -29,13 +29,13 @@
 		<form th:action="@{/client/create}" method="post"  th:object=${client}>
 			  <div class="form-row" style="padding-left:25%;">
 			    <div class="col-md-2 mb-3">
-			     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}"/>
+			     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
 			    </div>
 			    <div class="col-md-4 mb-3">
-					<input type="text" class="form-control" id="direction" placeholder="Dirección" name="direction" th:field="*{direction}"/>	
+					<input type="text" class="form-control" id="direction" placeholder="Dirección" name="direction" th:field="*{direction}" required/>	
 			    </div>
 			    <div class="col-md-2 mb-3">
-			    	<input type="text" class="form-control" id="cuit" placeholder="CUIT" name="cuit" th:field="*{cuit}"/>
+			    	<input type="text" class="form-control" id="cuit" placeholder="CUIT" name="cuit" th:field="*{cuit}" required/>
 			    </div>
 			  </div>
 			  <button class="btn btn-dark" type="submit">Agregar</button>
