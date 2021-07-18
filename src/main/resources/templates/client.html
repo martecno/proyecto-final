@@ -24,9 +24,12 @@
 	<body class="text-center">
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
+		
+		<h1 style="padding-bottom:20px; padding-top:30px;">Listado de Clientes</h1>
+		
 		<div class="container">
-			<div >
-				<table style="width:80%">
+			
+				<table>
 				  <tr>
 				    <th>Nombre</th>
 				    <th>Dirección</th> 
@@ -38,7 +41,7 @@
 				    <td th:text="${client.cuit}"></td>
 				  </tr>
 				</table>
-			</div>
+			
 		</div>
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
