@@ -43,8 +43,7 @@ public class AdminController {
 		admin.setEmail(email);
 		admin.setPassword(password);
 		admin = adminService.save(admin);
-		System.out.println(String.format("Se creó el usuario con id: %s", admin.getId()));
-		return "redirect:/";
+		return "redirect:/success";
 	}
 
 }

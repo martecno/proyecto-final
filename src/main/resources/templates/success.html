@@ -23,30 +23,19 @@
 	<body class="text-center">
 	<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
-		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo usuario</h1>
-		<form th:action="@{/user/create}" method="post"  th:object=${user}>
-		  <div class="form-row" style="padding-left:15%;">
-		    <div class="col-md-2 mb-3">
-		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required />
-		    </div>
-		    <div class="col-md-2 mb-3">
-				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}" required/>	
-		    </div>
-		    <div class="col-md-2 mb-3">
-		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}" required/>
-		    </div>
-		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}" required/>
-		    </div>
-		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}" required/>
-		    </div>
-		  </div>
-		  <button class="btn btn-dark" type="submit">Agregar</button>
-		</form>
+		
+		<h1 style="padding-top: 20px;">El usuario fue creado exitosamente</h1>
+		<!-- Redirect contact form -->
 
-		
-		
+		<script type = "text/javascript">
+         function Redirect() {
+               window.location = "http://localhost:8080/person";
+            }            
+            
+            setTimeout('Redirect()', 2500);
+
+      </script>
+	
 	
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>

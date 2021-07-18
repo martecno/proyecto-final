@@ -4,8 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.profinal.entities.Accountant;
+import com.profinal.entities.Admin;
+import com.profinal.entities.User;
 import com.profinal.services.AccountantService;
 import com.profinal.services.AdminService;
 import com.profinal.services.ClientService;
@@ -56,6 +60,12 @@ public class MainController {
 		model.addAttribute("users", usersService.getUsers());
 		model.addAttribute("accountants", accountantsService.getAccountants());
 		return "person";
+	}
+
+	@GetMapping(value = "/success")
+	public String submitForm(@ModelAttribute("user") User user, @ModelAttribute("admin") Admin admin,
+			@ModelAttribute("accountant") Accountant accountant) {
+		return "success";
 	}
 
 }

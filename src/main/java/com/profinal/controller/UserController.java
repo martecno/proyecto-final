@@ -1,7 +1,5 @@
 package com.profinal.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +13,6 @@ import com.profinal.services.UserService;
 @Controller
 @RequestMapping("/user")
 public class UserController {
-	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	private final UserService userService;
 
 	public UserController(UserService userService) {
@@ -41,8 +38,7 @@ public class UserController {
 		user.setEmail(email);
 		user.setPassword(password);
 		user = userService.save(user);
-		System.out.println(String.format("Se creó el usuario con id: %s", user.getId()));
-		return "redirect:/";
+		return "redirect:/success";
 	}
 
 }

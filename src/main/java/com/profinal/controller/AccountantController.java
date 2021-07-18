@@ -1,7 +1,5 @@
 package com.profinal.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +14,6 @@ import com.profinal.services.AccountantService;
 @Controller
 @RequestMapping("/accountant")
 public class AccountantController {
-	private static final Logger logger = LoggerFactory.getLogger(AccountantController.class);
 	private final AccountantService accountantService;
 
 	@Autowired
@@ -43,8 +40,7 @@ public class AccountantController {
 		accountant.setEmail(email);
 		accountant.setPassword(password);
 		accountant = accountantService.save(accountant);
-		System.out.println(String.format("Se creó el usuario con id: %s", accountant.getId()));
-		return "redirect:/";
+		return "redirect:/success";
 	}
 
 }
