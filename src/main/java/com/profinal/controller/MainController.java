@@ -6,8 +6,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.profinal.services.AccountantService;
 import com.profinal.services.AdminService;
 import com.profinal.services.ClientService;
+import com.profinal.services.UserService;
 
 @Controller
 @RequestMapping("/")
@@ -15,11 +17,21 @@ public class MainController {
 
 	private final ClientService clientService;
 	private final AdminService adminsService;
+	private final UserService usersService;
+	private final AccountantService accountantsService;
+
+	@GetMapping("/")
+	public String index() {
+		return "index";
+	}
 
 	@Autowired
-	public MainController(ClientService clientService, AdminService adminService) {
+	public MainController(ClientService clientService, AdminService adminService, UserService userService,
+			AccountantService accountantService) {
 		this.clientService = clientService;
 		this.adminsService = adminService;
+		this.usersService = userService;
+		this.accountantsService = accountantService;
 	}
 
 	@GetMapping(value = "/calendar")
@@ -38,10 +50,12 @@ public class MainController {
 		return "client";
 	}
 
-	@GetMapping(value = "/admin")
+	@GetMapping(value = "/person")
 	public String admins(Model model) {
 		model.addAttribute("admins", adminsService.getAdmins());
-		return "admin";
+		model.addAttribute("users", usersService.getUsers());
+		model.addAttribute("accountants", accountantsService.getAccountants());
+		return "person";
 	}
 
 }

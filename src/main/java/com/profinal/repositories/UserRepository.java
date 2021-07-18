@@ -5,10 +5,10 @@ import javax.transaction.Transactional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.profinal.entities.Person;
+import com.profinal.entities.User;
 
 @Repository
 @Transactional
-public interface UserRepository extends JpaRepository<Person, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
 }
