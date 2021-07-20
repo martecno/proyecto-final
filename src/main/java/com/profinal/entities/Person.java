@@ -7,6 +7,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,10 +26,16 @@ public abstract class Person implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	protected Long id;
+	@NotEmpty
 	protected String name;
+	@NotEmpty
 	protected String lastname;
+	@NotNull
 	protected String cell;
+	@NotEmpty
+	@Email
 	protected String email;
+	@NotEmpty
 	protected String password;
 
 	@ManyToOne
