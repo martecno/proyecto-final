@@ -28,6 +28,7 @@
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
 		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required />
+		     	 <small class="form-text text-danger" th:if="${#fields.hasErrors('name')} " th:errors="*{name}"></small>
 		    </div>
 		    <div class="col-md-2 mb-3">
 				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}" required/>	
@@ -36,7 +37,7 @@
 		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}" required/>
 		    </div>
 		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}" required/>
+		      <input type="email" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}"/>
 		    </div>
 		    <div class="col-md-2 mb-3">
 		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}" required/>
