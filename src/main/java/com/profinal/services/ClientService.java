@@ -17,6 +17,10 @@ public class ClientService {
 		this.clientRepository = clientRepository;
 	}
 
+	public Client getById(Long id) {
+		return clientRepository.findById(id).get();
+	}
+
 	public Client save(Client client) {
 		return clientRepository.saveAndFlush(client);
 	}

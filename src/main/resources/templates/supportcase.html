@@ -23,6 +23,28 @@
 	<body>
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
+		
+		<h1 style="padding-bottom:20px; padding-top:30px;" class="text-center">Listado de Casos de Soporte</h1>
+		
+		<div class="container">
+			
+				<table>
+				  <tr>
+				    <th>Nombre</th>
+				    <th>Descripcion</th> 
+				    <th>Fecha</th>
+				    <th>Abrir caso soporte</th>
+				  </tr>
+				  <tr th:each="suportcase: ${supportcases}">
+				    <td th:text="${suportcase.clientId}"></td>
+				    <td th:text="${suportcase.description}"></td>
+				    <td th:text="${suportcase.date}"></td>
+				    <td><form th:action="@{|/supportcase/${client.id}|}" method="get"><button type="submit" class="btn btn-warning">Nuevo Caso</button></form></td>
+				  </tr>
+				</table>
+			
+		</div>
+		
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
 	</body>

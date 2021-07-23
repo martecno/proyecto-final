@@ -1,13 +1,13 @@
 package com.profinal.entities;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 
 import org.hibernate.annotations.Type;
 
@@ -24,10 +24,10 @@ public class SupportCase implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	private LocalDateTime date;
 	@ManyToOne
 	private Client client;
-	@OneToOne
-	private Calendar calendar;
+
 	@Type(type = "text")
 	private String description;
 

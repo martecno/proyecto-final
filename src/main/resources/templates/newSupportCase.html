@@ -24,27 +24,17 @@
 	<body class="text-center">
 		<!-- Navbar -->
 		<header th:insert="navbar.html :: navbar"> </header>
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo caso de soporte para <span th:text="${supportCase.clientName}"></span></h1>
+		<form th:action="@{/supportcase}" method="post"  th:object=${supportCase}>
+			  <div class="form-row" style="padding-left:25%;">
+			    <div class="col-md-2 mb-3">
+			     	 <input type="text" class="form-control"  id="descripion" placeholder="Descripcion" name="description" th:field="*{description}" required/>
+			    </div>
+			  </div>
+			  <input type="hidden" name="clientId" th:field="*{clientId}" th:value="*{clientId}" />
+			  <button class="btn btn-dark" type="submit">Agregar</button>
+		</form>
 		
-		<h1 style="padding-bottom:20px; padding-top:30px;">Listado de Clientes</h1>
-		
-		<div class="container">
-			
-				<table>
-				  <tr>
-				    <th>Nombre</th>
-				    <th>Dirección</th> 
-				    <th>CUIT</th>
-				    <th>Abrir caso soporte</th>
-				  </tr>
-				  <tr th:each="client: ${clients}">
-				    <td th:text="${client.name}"></td>
-				    <td th:text="${client.direction}"></td>
-				    <td th:text="${client.cuit}"></td>
-				    <td><form th:action="@{|/supportcase/${client.id}|}" method="get"><button type="submit" class="btn btn-warning">Nuevo Caso</button></form></td>
-				  </tr>
-				</table>
-			
-		</div>
 		<!-- Footer -->	
 		<header th:insert="footer.html :: footer"> </header>
 	</body>

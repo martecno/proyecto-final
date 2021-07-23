@@ -16,7 +16,7 @@ import com.profinal.services.ClientService;
 import com.profinal.services.UserService;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping
 public class MainController {
 
 	private final ClientService clientService;
@@ -43,7 +43,7 @@ public class MainController {
 		return "calendar";
 	}
 
-	@GetMapping(value = "/supportcase")
+	@GetMapping(value = "/sc")
 	public String supportcase() {
 		return "supportcase";
 	}
