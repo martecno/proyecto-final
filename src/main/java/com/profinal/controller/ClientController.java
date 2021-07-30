@@ -1,20 +1,27 @@
 package com.profinal.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.profinal.entities.Client;
+import com.profinal.repositories.ClientRepository;
 import com.profinal.services.ClientService;
 
 @Controller
 @RequestMapping("/client")
 public class ClientController {
 	private final ClientService clientService;
+	private ClientRepository clientRepository;
 
 	@Autowired
 	public ClientController(ClientService clientService) {
@@ -38,6 +45,27 @@ public class ClientController {
 		client = clientService.save(client);
 
 		return "redirect:/successclient";
+	}
+
+	@GetMapping("/{id}")
+	public String editClient(@PathVariable(name = "id", required = true) Long id, Model model) {
+		Optional<Client> clientOp = clientRepository.findById(id);
+		if (!clientOp.isPresent())
+			return "redirect:error";
+
+		model.addAttribute("client", clientOp.get());
+		return "editClient";
+	}
+
+	@PostMapping("/{id}")
+	public String updateClient(@PathVariable(name = "id", required = true) Long id,
+			@ModelAttribute(name = "client") Client client) {
+		Optional<Client> clientOp = clientRepository.findById(id);
+		if (!clientOp.isPresent() || client == null)
+			return "redirect:error";
+
+		clientRepository.save(client);
+		return "redirect:/client";
 	}
 
 }
