@@ -36,7 +36,6 @@
 				    <th>Email</th>
 				    <th>Celular</th>
 				    <th>Acciones</th>
-				    <th>ID</th>
 				  </tr>
 				  <tr th:each="user: ${users}">
 				    <td th:text="${user.name}"></td>
@@ -47,7 +46,6 @@
 				    	<a th:href="@{|user/edit/${user.id}|}">Actualizar</a>
 				    	<a th:href="@{|user/delete/${user.id}|}">Eliminar</a>
 				    </td>
-				  	 <td th:text="${user.id}"></td>
 				  </tr>
 				</table>
 			</div>
@@ -60,7 +58,6 @@
 				    <th>Email</th>
 				    <th>Celular</th>
 				    <th>Acciones</th>
-				    <th>ID</th>
 				  </tr>
 				  <tr th:each="accountant: ${accountants}">
 				    <td th:text="${accountant.name}"></td>
@@ -71,7 +68,6 @@
 				    	<a th:href="@{|accountant/edit/${accountant.id}|}">Actualizar</a>
 				    	<a th:href="@{|accountant/delete/${accountant.id}|}">Eliminar</a>
 				    </td>
-				     <td th:text="${accountant.id}"></td>
 				  </tr>
 				</table>
 			</div>
