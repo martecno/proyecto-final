@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:insert="fragments/head.html :: head"></head>
+	<body class="text-center">
+		<!-- Navbar -->
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
+		
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo contador</h1>
+			
+		<form th:action="@{|/update/${accountant.id}|}" method="post"  th:object=${accountant}>
+		  <div class="form-row" style="padding-left:15%;">
+		    <div class="col-md-2 mb-3">
+		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+				<input type="text" class="form-control" id="lastname" placeholder="Apellido" name="lastname" th:field="*{lastname}" required/>	
+		    </div>
+		    <div class="col-md-2 mb-3">
+		    		<input type="text" class="form-control" id="cell" placeholder="Celular" name="cell" th:field="*{cell}" required/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+		      <input type="email" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}" required/>
+		    </div>
+		    <div class="col-md-2 mb-3">
+		      <input type="text" class="form-control" id="password" placeholder="Contrae&#241a" name="password" th:field="*{password}" required/>
+		    </div>
+		  </div>
+		  <input name="id" type="hidden" th:value="*{id}">
+		  <button class="btn btn-dark" type="submit">Editar</button>
+		</form>
+
+		
+		<!-- Footer -->	
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
+
+	
+	</body>
+</html>

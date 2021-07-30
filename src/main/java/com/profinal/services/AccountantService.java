@@ -1,6 +1,7 @@
 package com.profinal.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,4 +25,13 @@ public class AccountantService {
 	public List<Accountant> getAccountants() {
 		return accountantRepository.findAll();
 	}
+
+	public Optional<Accountant> getId(Long id) {
+		return accountantRepository.findById(id);
+	}
+
+	public void delete(Long id) {
+		accountantRepository.deleteById(id);
+	}
+
 }
