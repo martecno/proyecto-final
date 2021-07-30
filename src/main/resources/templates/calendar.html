@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-			<head th:insert="head.html :: head"></head>
+			<head th:insert="fragments/head.html :: head"></head>
 	<body>
 			<!-- Navbar -->
-			<header th:insert="navbar.html :: navbar"> </header>
+			<!-- Navbar -->
+		<nav th:insert="fragments/navbar.html :: navbar"> </nav>
+	
 			
 			<div class="p-5">
 			  <h2 class="mb-4">Full Calendar</h2>
@@ -78,6 +80,7 @@
 			</div>
 			 
 			<!-- Footer -->	
-			<header th:insert="footer.html :: footer"> </header>
+				<!-- Footer -->	
+			<footer th:insert="fragments/footer.html :: footer"> </footer>
 	</body>
 </html>

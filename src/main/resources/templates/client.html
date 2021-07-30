@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-		<head th:insert="head.html :: head"></head>
+		<head th:insert="fragments/head.html :: head"></head>
 	<body class="text-center">
 		<!-- Navbar -->
-		<header th:insert="navbar.html :: navbar"> </header>
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		
 		<h1 style="padding-bottom:20px; padding-top:30px;">Listado de Clientes</h1>
 		
@@ -12,7 +12,7 @@
 				<table>
 				  <tr>
 				    <th>Nombre</th>
-				    <th>Dirección</th> 
+				    <th>Direcci&oacuten</th> 
 				    <th>CUIT</th>
 				    <th>Abrir caso soporte</th>
 				  </tr>
@@ -26,7 +26,7 @@
 			
 		</div>
 		<!-- Footer -->	
-		<header th:insert="footer.html :: footer"> </header>
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
 	</body>
 </html>
 		

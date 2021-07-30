@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head th:insert="head.html :: head"></head>
+	<head th:insert="fragments/head.html :: head"></head>
 	<body class="text-center">
 		<!-- Navbar -->
-		<header th:insert="navbar.html :: navbar"> </header>
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		
-			<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo contador</h1>
-		<form th:action="@{/accountant/create}" method="post"  th:object=${accountant}>
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo contador</h1>
+			
+		<form th:action="@{/accountant/save}" method="post"  th:object=${accountant}>
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
 		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
@@ -21,7 +22,7 @@
 		      <input type="email" class="form-control" id="email" placeholder="Email" name="email" th:field="*{email}" required/>
 		    </div>
 		    <div class="col-md-2 mb-3">
-		      <input type="text" class="form-control" id="password" placeholder="Contraeña" name="password" th:field="*{password}" required/>
+		      <input type="text" class="form-control" id="password" placeholder="Contrae&#241a" name="password" th:field="*{password}" required/>
 		    </div>
 		  </div>
 		  <button class="btn btn-dark" type="submit">Agregar</button>
@@ -29,7 +30,7 @@
 
 		
 		<!-- Footer -->	
-		<header th:insert="footer.html :: footer"> </header>
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
 
 	
 	</body>

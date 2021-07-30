@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head th:insert="head.html :: head"></head>
+	<head th:insert="fragments/head.html :: head"></head>
 	<body class="text-center">
 		<!-- Navbar -->
-		<header th:insert="navbar.html :: navbar"> </header>
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo caso de soporte para <span th:text="${supportCase.clientName}"></span></h1>
 		<form th:action="@{/supportcase}" method="post"  th:object=${supportCase}>
 			  <div class="form-row" style="padding-left:25%;">
@@ -12,11 +12,12 @@
 			    </div>
 			  </div>
 			  <input type="hidden" name="clientId" th:field="*{clientId}" th:value="*{clientId}" />
+			  <input type="datetime-local" name="date" th:field="*{date}" th:value="*{date}" />
 			  <button class="btn btn-dark" type="submit">Agregar</button>
 		</form>
 		
 		<!-- Footer -->	
-		<header th:insert="footer.html :: footer"> </header>
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
 	</body>
 </html>
 		

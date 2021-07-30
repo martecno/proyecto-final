@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head th:insert="head.html :: head"></head>
+	<head th:insert="fragments/head.html :: head"></head>
 	<body class="text-center">
 		<!-- Navbar -->
-		<header th:insert="navbar.html :: navbar"> </header>
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		<div class="container" style ="padding-top:40px">
 			<h1 style="padding-bottom: 20px;">Listado de Admins</h1>
 			<div style="padding-bottom:40px;">
 				<table style="width:70%; margin-left:15%;">
 				  <tr>
 				    <th>Nombre</th>
-				    <th>Dirección</th> 
+				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
+				    <th>Acciones</th>
 				  </tr>
 				  <tr th:each="admin: ${admins}" >
 				    <td th:text="${admin.name}"></td>
 				    <td th:text="${admin.lastname}"></td>
 				    <td th:text="${admin.email}"></td>
 				    <td th:text="${admin.cell}"></td>
+				    <td>
+				    	<a th:href="@{|admin/edit/${admin.id}|}">Actualizar</a>
+				    	<a th:href="@{|admin/delete/${admin.id}|}">Eliminar</a>
+				    </td>
 				  </tr>
 				</table>
 			</div>
@@ -27,15 +32,22 @@
 				<table style="width:70%; margin-left:15%;">
 				  <tr>
 				    <th>Nombre</th>
-				    <th>Dirección</th> 
+				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
+				    <th>Acciones</th>
+				    <th>ID</th>
 				  </tr>
 				  <tr th:each="user: ${users}">
 				    <td th:text="${user.name}"></td>
 				    <td th:text="${user.lastname}"></td>
 				    <td th:text="${user.email}"></td>
 				    <td th:text="${user.cell}"></td>
+				    <td>
+				    	<a th:href="@{|user/edit/${user.id}|}">Actualizar</a>
+				    	<a th:href="@{|user/delete/${user.id}|}">Eliminar</a>
+				    </td>
+				  	 <td th:text="${user.id}"></td>
 				  </tr>
 				</table>
 			</div>
@@ -44,21 +56,28 @@
 				<table style="width:70%; margin-left:15%;">
 				  <tr>
 				    <th>Nombre</th>
-				    <th>Dirección</th> 
+				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
+				    <th>Acciones</th>
+				    <th>ID</th>
 				  </tr>
 				  <tr th:each="accountant: ${accountants}">
 				    <td th:text="${accountant.name}"></td>
 				    <td th:text="${accountant.lastname}"></td>
 				    <td th:text="${accountant.email}"></td>
 				    <td th:text="${accountant.cell}"></td>
+				    <td>
+				    	<a th:href="@{|accountant/edit/${accountant.id}|}">Actualizar</a>
+				    	<a th:href="@{|accountant/delete/${accountant.id}|}">Eliminar</a>
+				    </td>
+				     <td th:text="${accountant.id}"></td>
 				  </tr>
 				</table>
 			</div>
 		</div>
 		<!-- Footer -->	
-		<header th:insert="footer.html :: footer"> </header>
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
 	</body>
 </html>
 		
