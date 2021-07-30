@@ -7,7 +7,7 @@
 		
 		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo Administrador</h1>
 		
-		<form th:action="@{/admin/save}" method="post"  th:object=${admin}>
+		<form th:action="@{|/update/${admin.id}|}" method="post"  th:object=${admin}>
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
 		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
@@ -25,6 +25,7 @@
 		      <input type="text" class="form-control" id="password" placeholder="Contrae&#241a" name="password" th:field="*{password}"  required/>
 		    </div>
 		  </div>
+		   <input name="id" type="hidden" th:value="*{id}">
 		  <button class="btn btn-dark" type="submit">Agregar</button>
 		</form>
 

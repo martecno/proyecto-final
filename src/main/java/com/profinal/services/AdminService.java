@@ -1,6 +1,7 @@
 package com.profinal.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,5 +24,13 @@ public class AdminService {
 
 	public List<Admin> getAdmins() {
 		return adminRepository.findAll();
+	}
+
+	public Optional<Admin> getId(Long id) {
+		return adminRepository.findById(id);
+	}
+
+	public void delete(Long id) {
+		adminRepository.deleteById(id);
 	}
 }
