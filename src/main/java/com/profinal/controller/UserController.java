@@ -1,26 +1,31 @@
 package com.profinal.controller;
 
-import javax.validation.Valid;
+import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.profinal.entities.User;
+import com.profinal.repositories.UserRepository;
 import com.profinal.services.UserService;
 
 @Controller
 @RequestMapping("/user")
 public class UserController {
 	private final UserService userService;
+	private UserRepository userRepository;
 
 	User user = new User();
 
-	public UserController(UserService userService) {
+	public UserController(UserService userService, UserRepository userRepository) {
 		this.userService = userService;
+		this.userRepository = userRepository;
 	}
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
@@ -29,31 +34,32 @@ public class UserController {
 		return "newUser";
 	}
 
-	@PostMapping(value = "/create")
-	public String createUser(@Valid @RequestParam(value = "name") String name,
-			@RequestParam(value = "lastname") String lastname, @RequestParam(value = "cell") String cell,
-			@RequestParam(value = "email") String email, @RequestParam(value = "password") String password,
-			Model model) {
+	@GetMapping("/edit/{id}")
+	public String editUser(@PathVariable(name = "id", required = true) Long id, Model model) {
+		Optional<User> userOp = userRepository.findById(id);
+		if (!userOp.isPresent())
+			return "redirect:error";
 
-//		if (result.hasErrors()) {
-//			User user = new User();
-//			user.setName(name);
-//			user.setLastname(lastname);
-//			user.setCell(cell);
-//			user.setEmail(email);
-//			user.setPassword(password);
-//			System.out.println("Hubo errores");
-//			return "redirect:/create";
-//		}
+		model.addAttribute("user", userOp.get());
+		return "newUser";
+	}
 
-		User user = new User();
-		user.setName(name);
-		user.setLastname(lastname);
-		user.setCell(cell);
-		user.setEmail(email);
-		user.setPassword(password);
-		user = userService.save(user);
-		return "redirect:/success";
+	@PostMapping("/save")
+	public String save(@Validated User user, Model model) {
+		userService.save(user);
+		return "redirect:/person";
+	}
+
+	@GetMapping("/newUser")
+	public String createUser(Model model) {
+		model.addAttribute("user", new User());
+		return "newUser";
+	}
+
+	@GetMapping("/delete/{id}")
+	public String delete(Model model, @PathVariable Long id) {
+		userService.delete(id);
+		return "redirect:/person";
 	}
 
 }
