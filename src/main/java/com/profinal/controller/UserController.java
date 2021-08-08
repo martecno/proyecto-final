@@ -41,7 +41,7 @@ public class UserController {
 			return "redirect:error";
 
 		model.addAttribute("user", userOp.get());
-		return "newUser";
+		return "editUser";
 	}
 
 	@PostMapping("/save")

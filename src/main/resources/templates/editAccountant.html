@@ -5,9 +5,9 @@
 		<!-- Navbar -->
 		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		
-		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo contador</h1>
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Editando Contador con Id = "<span th:text="${accountant.id}"></span>"</h1>
 			
-		<form th:action="@{|/update/${accountant.id}|}" method="post"  th:object=${accountant}>
+		<form th:action="@{/accountant/save}" method="post"  th:object=${accountant}>
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
 		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>

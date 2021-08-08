@@ -27,3 +27,8 @@ table {
     width: 100%;
     float: none;
 }
+
+.line
+{
+    display: inline-block;
+}

@@ -11,9 +11,9 @@ import com.profinal.repositories.AdminRepository;
 
 @Service
 public class AdminService {
+	@Autowired
 	private final AdminRepository adminRepository;
 
-	@Autowired
 	public AdminService(AdminRepository adminRepository) {
 		this.adminRepository = adminRepository;
 	}

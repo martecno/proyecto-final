@@ -2,7 +2,6 @@ package com.profinal.controller;
 
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -22,7 +21,8 @@ public class AdminController {
 	private final AdminService adminService;
 	private AdminRepository adminRepository;
 
-	@Autowired
+	Admin admin = new Admin();
+
 	public AdminController(AdminService adminService, AdminRepository adminRepository) {
 		this.adminService = adminService;
 		this.adminRepository = adminRepository;
@@ -41,7 +41,7 @@ public class AdminController {
 			return "redirect:error";
 
 		model.addAttribute("admin", adminOp.get());
-		return "newAdmin";
+		return "editAdmin";
 	}
 
 	@PostMapping("/save")
@@ -51,7 +51,7 @@ public class AdminController {
 	}
 
 	@GetMapping("/newAdmin")
-	public String createAccountant(Model model) {
+	public String createAdmin(Model model) {
 		model.addAttribute("admin", new Admin());
 		return "newAdmin";
 	}

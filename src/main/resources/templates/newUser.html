@@ -5,7 +5,7 @@
 	<!-- Navbar -->
 		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		
-		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo usuario</h1>
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Usuario</h1>
 		
 		<form th:action="@{/user/save}" method="post"  th:object=${user}>
 		  <div class="form-row" style="padding-left:15%;">
@@ -26,7 +26,8 @@
 		      <input type="text" class="form-control" id="password" placeholder="Contrae&#241a" name="password" th:field="*{password}" required/>
 		    </div>
 		  </div>
-		  <button class="btn btn-dark" type="submit">Agregar</button>
+		  <input name="id" type="hidden" th:value="*{id}">
+		  <button class="btn btn-dark" type="submit">Guardar</button>
 		</form>
 
 		

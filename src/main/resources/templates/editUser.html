@@ -5,9 +5,9 @@
 	<!-- Navbar -->
 		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
 		
-		<h1 style="padding-top: 20px; padding-bottom: 20px">Editar Usuario <span th:text="${user.id}"></span></h1>
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Editando Usuario con Id = "<span th:text="${user.id}"></span>"</h1>
 		
-		<form th:action="@{|/update/${user.id}|}" method="post"  th:object=${user}>
+		<form th:action="@{/user/save}" method="post"  th:object=${user}>
 		  <div class="form-row" style="padding-left:15%;">
 		    <div class="col-md-2 mb-3">
 		     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required />

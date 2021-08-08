@@ -25,7 +25,8 @@
 		      <input type="text" class="form-control" id="password" placeholder="Contrae&#241a" name="password" th:field="*{password}"  required/>
 		    </div>
 		  </div>
-		  <button class="btn btn-dark" type="submit">Agregar</button>
+		   <input name="id" type="hidden" th:value="*{id}">
+		  <button class="btn btn-dark" type="submit">Guardar</button>
 		</form>
 
 		

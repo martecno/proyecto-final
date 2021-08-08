@@ -41,7 +41,7 @@ public class AccountantController {
 			return "redirect:error";
 
 		model.addAttribute("accountant", accountantOp.get());
-		return "newAccountant";
+		return "editAccountant";
 	}
 
 	@PostMapping("/save")

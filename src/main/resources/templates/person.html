@@ -13,7 +13,7 @@
 				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
-				    <th>Acciones</th>
+				    <th width="30%">Acciones</th>
 				  </tr>
 				  <tr th:each="admin: ${admins}" >
 				    <td th:text="${admin.name}"></td>
@@ -21,8 +21,12 @@
 				    <td th:text="${admin.email}"></td>
 				    <td th:text="${admin.cell}"></td>
 				    <td>
-				    	<a th:href="@{|admin/edit/${admin.id}|}">Actualizar</a>
-				    	<a th:href="@{|admin/delete/${admin.id}|}">Eliminar</a>
+				    	<form th:action="@{|/admin/edit/${admin.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-dark">Actualizar</button>
+				    	</form>
+				    	<form th:action="@{|/admin/delete/${admin.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-warning">Eliminar</button>
+				    	</form>
 				    </td>
 				  </tr>
 				</table>
@@ -35,7 +39,7 @@
 				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
-				    <th>Acciones</th>
+				    <th width="30%">Acciones</th>
 				  </tr>
 				  <tr th:each="user: ${users}">
 				    <td th:text="${user.name}"></td>
@@ -43,8 +47,12 @@
 				    <td th:text="${user.email}"></td>
 				    <td th:text="${user.cell}"></td>
 				    <td>
-				    	<a th:href="@{|user/edit/${user.id}|}">Actualizar</a>
-				    	<a th:href="@{|user/delete/${user.id}|}">Eliminar</a>
+				    	<form th:action="@{|/user/edit/${user.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-dark">Actualizar</button>
+				    	</form>
+				    	<form th:action="@{|/user/delete/${user.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-warning">Eliminar</button>
+				    	</form>
 				    </td>
 				  </tr>
 				</table>
@@ -57,7 +65,7 @@
 				    <th>Direcci&#243n</th> 
 				    <th>Email</th>
 				    <th>Celular</th>
-				    <th>Acciones</th>
+				    <th width="30%">Acciones</th>
 				  </tr>
 				  <tr th:each="accountant: ${accountants}">
 				    <td th:text="${accountant.name}"></td>
@@ -65,8 +73,12 @@
 				    <td th:text="${accountant.email}"></td>
 				    <td th:text="${accountant.cell}"></td>
 				    <td>
-				    	<a th:href="@{|accountant/edit/${accountant.id}|}">Actualizar</a>
-				    	<a th:href="@{|accountant/delete/${accountant.id}|}">Eliminar</a>
+				    	<form th:action="@{|/accountant/edit/${accountant.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-dark">Actualizar</button>
+				    	</form>
+				    	<form th:action="@{|/accountant/delete/${accountant.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-warning">Eliminar</button>
+				    	</form>
 				    </td>
 				  </tr>
 				</table>
