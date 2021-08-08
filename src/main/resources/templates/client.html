@@ -15,12 +15,26 @@
 				    <th>Direcci&oacuten</th> 
 				    <th>CUIT</th>
 				    <th>Abrir caso soporte</th>
+				    <th>Acciones</th>
 				  </tr>
 				  <tr th:each="client: ${clients}">
 				    <td th:text="${client.name}"></td>
 				    <td th:text="${client.direction}"></td>
 				    <td th:text="${client.cuit}"></td>
-				    <td><form th:action="@{|/supportcase/${client.id}|}" method="get"><button type="submit" class="btn btn-warning">Nuevo Caso</button></form></td>
+				    <td>
+				    	<form th:action="@{|/supportcase/${client.id}|}" method="get">
+				    		<button type="submit" class="btn btn-secondary">Nuevo Caso</button>
+				    	</form>
+				    </td>
+				    <td>
+				    	<form th:action="@{|/client/edit/${client.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-dark">Actualizar</button>
+				    	</form>
+				    	<form th:action="@{|/client/delete/${client.id}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-warning">Eliminar</button>
+				    	</form>
+				    </td>
+				    
 				  </tr>
 				</table>
 			

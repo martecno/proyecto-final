@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head th:insert="fragments/head.html :: head"></head>
+	<body class="text-center">
+		<!-- Navbar -->
+		<navbar th:insert="fragments/navbar.html :: navbar"> </navbar>
+		
+		<h1 style="padding-top: 20px; padding-bottom: 20px">Editando Cliente con id ="<span th:text="${client.id}"></span>"</h1>
+		
+		<form th:action="@{/client/save}" method="post"  th:object=${client}>
+			  <div class="form-row" style="padding-left:25%;">
+			    <div class="col-md-2 mb-3">
+			     	 <input type="text" class="form-control"  id="name" placeholder="Nombre" name="name" th:field="*{name}" required/>
+			    </div>
+			    <div class="col-md-4 mb-3">
+					<input type="text" class="form-control" id="direction" placeholder="Direcci&#243n" name="direction" th:field="*{direction}" required/>	
+			    </div>
+			    <div class="col-md-2 mb-3">
+			    	<input type="text" class="form-control" id="cuit" placeholder="CUIT" name="cuit" th:field="*{cuit}" required/>
+			    </div>
+			  </div>
+			  <input name="id" type="hidden" th:value="*{id}">
+			  <button class="btn btn-dark" type="submit">Editar</button>
+		</form>
+		
+		<!-- Footer -->	
+		<footer th:insert="fragments/footer.html :: footer"> </footer>
+	</body>
+</html>
+		

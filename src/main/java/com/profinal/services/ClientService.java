@@ -1,6 +1,7 @@
 package com.profinal.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,14 @@ public class ClientService {
 
 	public List<Client> getClients() {
 		return clientRepository.findAll();
+	}
+
+	public Optional<Client> getId(Long id) {
+		return clientRepository.findById(id);
+	}
+
+	public void delete(Long id) {
+		clientRepository.deleteById(id);
 	}
 
 }

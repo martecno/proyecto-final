@@ -5,6 +5,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,8 +25,9 @@ public class ClientController {
 	private ClientRepository clientRepository;
 
 	@Autowired
-	public ClientController(ClientService clientService) {
+	public ClientController(ClientService clientService, ClientRepository clientRepository) {
 		this.clientService = clientService;
+		this.clientRepository = clientRepository;
 	}
 
 	@RequestMapping(value = "/new", method = RequestMethod.GET)
@@ -47,7 +49,7 @@ public class ClientController {
 		return "redirect:/successclient";
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/edit/{id}")
 	public String editClient(@PathVariable(name = "id", required = true) Long id, Model model) {
 		Optional<Client> clientOp = clientRepository.findById(id);
 		if (!clientOp.isPresent())
@@ -65,6 +67,18 @@ public class ClientController {
 			return "redirect:error";
 
 		clientRepository.save(client);
+		return "redirect:/client";
+	}
+
+	@PostMapping("/save")
+	public String save(@Validated Client client, Model model) {
+		clientService.save(client);
+		return "redirect:/client";
+	}
+
+	@GetMapping("/delete/{id}")
+	public String delete(Model model, @PathVariable Long id) {
+		clientService.delete(id);
 		return "redirect:/client";
 	}
 
