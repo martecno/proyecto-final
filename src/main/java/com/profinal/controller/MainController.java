@@ -13,6 +13,7 @@ import com.profinal.entities.Client;
 import com.profinal.services.AccountantService;
 import com.profinal.services.AdminService;
 import com.profinal.services.ClientService;
+import com.profinal.services.SupportCaseService;
 import com.profinal.services.UserService;
 
 @Controller
@@ -23,6 +24,7 @@ public class MainController {
 	private final AdminService adminsService;
 	private final UserService usersService;
 	private final AccountantService accountantsService;
+	private final SupportCaseService supportcasesService;
 
 	@GetMapping("/")
 	public String index() {
@@ -31,11 +33,12 @@ public class MainController {
 
 	@Autowired
 	public MainController(ClientService clientService, AdminService adminService, UserService userService,
-			AccountantService accountantService) {
+			AccountantService accountantService, SupportCaseService supportcasesService) {
 		this.clientService = clientService;
 		this.adminsService = adminService;
 		this.usersService = userService;
 		this.accountantsService = accountantService;
+		this.supportcasesService = supportcasesService;
 	}
 
 	@GetMapping(value = "/calendar")
@@ -43,8 +46,14 @@ public class MainController {
 		return "calendar";
 	}
 
+	@GetMapping(value = "/supportcase")
+	public String supportcases(Model model) {
+		return "supportcase";
+	}
+
 	@GetMapping(value = "/sc")
-	public String supportcase() {
+	public String supportcase(Model model) {
+		model.addAttribute("supportcases", supportcasesService.getSupports());
 		return "supportcase";
 	}
 

@@ -1,6 +1,7 @@
 package com.profinal.controller;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,11 +24,13 @@ public class SupportCaseController {
 
 	private final ClientService clientService;
 	private final SupportCaseService supportService;
+	private SupportCase supportCase;
 
 	@Autowired
 	public SupportCaseController(ClientService clientService, SupportCaseService supportService) {
 		this.clientService = clientService;
 		this.supportService = supportService;
+//		this.supportCase = supportCase;
 	}
 
 	@GetMapping("/{id}")
@@ -48,8 +51,11 @@ public class SupportCaseController {
 	public String create(@ModelAttribute(name = "supportCase") SupportCaseDto dto, Model model) {
 		Client client = clientService.getById(dto.getClientId());
 		SupportCase sc = new SupportCase();
+		var date = dto.getDate().toString();
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm");
+		LocalDateTime localDate = LocalDateTime.parse(date, formatter);
 		sc.setClient(client);
-		sc.setDate(dto.getDate());
+		sc.setDate(localDate);
 		sc.setDescription(dto.getDescription());
 
 		sc = supportService.saveSupport(sc);

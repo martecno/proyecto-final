@@ -9,18 +9,17 @@
 		
 		<div class="container">
 			
-				<table>
+				<table class="text-center">
 				  <tr>
-				    <th>Nombre</th>
+				    <th>Nro</th>
 				    <th>Descripcion</th> 
 				    <th>Fecha</th>
-				    <th>Abrir caso soporte</th>
+				    
 				  </tr>
 				  <tr th:each="suportcase: ${supportcases}">
-				    <td th:text="${suportcase.clientId}"></td>
+				    <td th:text="${suportcase.id}"></td>
 				    <td th:text="${suportcase.description}"></td>
 				    <td th:text="${suportcase.date}"></td>
-				    <td><form th:action="@{|/supportcase/${client.id}|}" method="get"><button type="submit" class="btn btn-warning">Nuevo Caso</button></form></td>
 				  </tr>
 				</table>
 			

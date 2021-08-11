@@ -7,12 +7,12 @@
 		<h1 style="padding-top: 20px; padding-bottom: 20px">Nuevo caso de soporte para <span th:text="${supportCase.clientName}"></span></h1>
 		<form th:action="@{/supportcase}" method="post"  th:object=${supportCase}>
 			  <div class="form-row" style="padding-left:25%;">
-			    <div class="col-md-2 mb-3">
+			    <div class="col-md-5 mb-5 ">
 			     	 <input type="text" class="form-control"  id="descripion" placeholder="Descripcion" name="description" th:field="*{description}" required/>
 			    </div>
+			  <input type="datetime-local" name="date" th:field="*{date}" th:value="*{date}" />
 			  </div>
 			  <input type="hidden" name="clientId" th:field="*{clientId}" th:value="*{clientId}" />
-			  <input type="datetime-local" name="date" th:field="*{date}" th:value="*{date}" />
 			  <button class="btn btn-dark" type="submit">Agregar</button>
 		</form>
 		

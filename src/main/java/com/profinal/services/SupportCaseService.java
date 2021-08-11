@@ -21,4 +21,5 @@ public class SupportCaseService {
 	public List<SupportCase> getSupports() {
 		return supportRepository.findAll();
 	}
+
 }
