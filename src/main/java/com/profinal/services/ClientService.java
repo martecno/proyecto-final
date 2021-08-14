@@ -11,6 +11,7 @@ import com.profinal.repositories.ClientRepository;
 
 @Service
 public class ClientService {
+
 	private final ClientRepository clientRepository;
 
 	@Autowired
