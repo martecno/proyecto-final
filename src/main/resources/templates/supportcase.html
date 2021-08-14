@@ -11,15 +11,23 @@
 			
 				<table class="text-center">
 				  <tr>
-				    <th>Nro</th>
+				    <th>Cliente</th>
 				    <th>Descripcion</th> 
 				    <th>Fecha</th>
-				    
+				    <th width="30%">Acciones</th>
 				  </tr>
 				  <tr th:each="suportcase: ${supportcases}">
-				    <td th:text="${suportcase.id}"></td>
+				    <td th:text="${suportcase.client.name}"></td>
 				    <td th:text="${suportcase.description}"></td>
 				    <td th:text="${suportcase.date}"></td>
+				    <!--td>
+				    	<form th:action="@{|/supporcase/edit/${supporcase.idClient}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-dark">Actualizar</button>
+				    	</form>
+				    	<form th:action="@{|/supporcase/delete/${supporcase.idClient}|}" method="get" class="line">
+				    		<button type="submit" class="btn btn-warning">Eliminar</button>
+				    	</form>
+				    <td-->
 				  </tr>
 				</table>
 			
